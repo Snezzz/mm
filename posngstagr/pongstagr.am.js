@@ -41,7 +41,7 @@
       comments_html = that.options.comments && ("<span class='pongstgrm-comments'> <i class='pongstgrm-icon-chat'></i>&nbsp; <small>" + context.comments.count + "</small> </span>");
       video = context.type === 'video' ? "<span class='pongstgrm-item-video'> <i class='pongstgrm-icon-play'></i> </span>" : "";
       created = that.options.timestamp && ("" + (new Date(context.created_time * 1000).toDateString()));
-      return "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'>  <img class='pongstgrm-img-responsive' alt='' src='" + context.images.low_resolution.url + "' width='300px' height='250px'>" + video + "</div> <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'> " +"<div class=''>"+text+"</div>" +"<small class='pongstgrm-item-date'>" + created + "</small><br>"+ likes_html + " &nbsp; &nbsp; " + comments_html + " <br> </div>";
+      return "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'>  <img class='pongstgrm-img-responsive' style='border-radius: 29px' alt='' src='" + context.images.low_resolution.url + "' width='350px' height='280px'>" + video + "</div> <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'> " +"<div style='font-family: Cambria'>"+text+"</div>" +"<small class='pongstgrm-item-date'>" + created + "</small><br>"+ likes_html + " &nbsp; &nbsp; " + comments_html + " <br> </div>";
     };
     this.modal = function(context) {};
     this.video = function(context) {};
