@@ -1,0 +1,30 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="justify-content" />
+            <item index="1" class="java.lang.String" itemvalue="align-items" />
+            <item index="2" class="java.lang.String" itemvalue="box-align" />
+            <item index="3" class="java.lang.String" itemvalue="align-content" />
+            <item index="4" class="java.lang.String" itemvalue="box-pack" />
+            <item index="5" class="java.lang.String" itemvalue="flex-wrap" />
+            <item index="6" class="java.lang.String" itemvalue="box-lines" />
+            <item index="7" class="java.lang.String" itemvalue="flex-direction" />
+            <item index="8" class="java.lang.String" itemvalue="box-direction" />
+            <item index="9" class="java.lang.String" itemvalue="box-orient" />
+            <item index="10" class="java.lang.String" itemvalue="flex-line-pack" />
+            <item index="11" class="java.lang.String" itemvalue="flex-grow" />
+            <item index="12" class="java.lang.String" itemvalue="flex-positive" />
+            <item index="13" class="java.lang.String" itemvalue="flex-shrink" />
+            <item index="14" class="java.lang.String" itemvalue="flex-negative" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
