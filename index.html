@@ -3,15 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>second_insta</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="manifest" href="src/site.webmanifest">
+        <link rel="apple-touch-icon" href="src/icon.png">
         <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/pongstagr.am.css">
+        <link rel="stylesheet" href="src/css/main.css">
+        <link rel="stylesheet" href="src/css/pongstagr.am.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <link rel="stylesheet" href="http://www.atlasestateagents.co.uk/css/tether.min.css">
         <script src="http://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
@@ -24,25 +24,33 @@
                 $('#photos').pongstgrm({
                     accessId:     '1476665546',
                     accessToken:  '1476665546.cd23ab2.58b556ac4b7c431099b4bda6697c82fb',
-                    show: 'recent'
+                    show: 'recent',
+                    MIN_ID:"1611178646284834147"
                 });
+
             }
             $(document).ready(function () {
-
+                $('#photos').pongstgrm({
+                    accessId:     '1476665546',
+                    accessToken:  '1476665546.cd23ab2.58b556ac4b7c431099b4bda6697c82fb',
+                    show: 'recent',
+                    MIN_ID:"1611180127788549209"
+                });
             });
         </script>
-        <script src="../posngstagr/pongstagr.am.js"></script>
+        <script src="posngstagr/pongstagr.am.js"></script>
     </head>
     <body>
     <div class="container" style="background-color: floralwhite">
+        <h1 style="text-align: center; font-family: Cambria;">My <a href="https://www.instagram.com/snezzzzzzzzz/" style="color:hotpink">Instagram</a> Life</h1>
         <div class="row " >
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <input class="butt" type="button" value="Загрузить еще" onclick="download()">
             </div>
-
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <ul id="photos">
-
         </ul>
+</div>
     </div>
     </div>
     </body>

@@ -10,22 +10,28 @@
   };
   Pongstgrm.VERSION = '0.1.0';
   Pongstgrm.DEFAULT = {
-    accessId: null,
-    accessToken: null,
+
+    accessId: void 0,
+    accessToken: void 0,
     show: 'recent',
-    count: 20,
+    count:5,
     likes: true,
     comments: true,
     timestamp: true,
     flexbox: true,
     avatar_size: 64,
     cover_photho: void 0,
-      description: 'text'
+      description: 'text',
+      MIN_ID:null
+
   };
+
+
+var pictures_id;
+
   Pongstgrm.prototype.html = function() {
     var that;
     that = this;
-
     /*
      * @name thumb
      * @desc render thumbnail markup
@@ -38,10 +44,11 @@
       likes_html = that.options.likes && ("<span class='pongstgrm-likes'> <i class='pongstgrm-icon-like'></i>&nbsp; <small>" + context.likes.count + "</small> </span>");
       comments_count =context.comments >= 2 ? 'Comment' : 'Comments';
         text=context.caption ? context.caption.text:"";
+       //pictures_id.push(context.id);
       comments_html = that.options.comments && ("<span class='pongstgrm-comments'> <i class='pongstgrm-icon-chat'></i>&nbsp; <small>" + context.comments.count + "</small> </span>");
       video = context.type === 'video' ? "<span class='pongstgrm-item-video'> <i class='pongstgrm-icon-play'></i> </span>" : "";
       created = that.options.timestamp && ("" + (new Date(context.created_time * 1000).toDateString()));
-      return "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'>  <img class='pongstgrm-img-responsive' style='border-radius: 29px' alt='' src='" + context.images.low_resolution.url + "' width='350px' height='280px'>" + video + "</div> <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'> " +"<div style='font-family: Cambria'>"+text+"</div>" +"<small class='pongstgrm-item-date'>" + created + "</small><br>"+ likes_html + " &nbsp; &nbsp; " + comments_html + " <br> </div>";
+      return "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'> <img style='border-radius: 29px;height: 200px;' alt='' src='" +context.images.low_resolution.url+ "' width='350px' height='280px'>" + video + "</div> <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 s'> " +"<div style='font-family: Cambria'>"+text+"</div>" +"<small class='pongstgrm-item-date'>" + created + "</small><br>"+ likes_html + " &nbsp; &nbsp; " + comments_html + " <br> </div>";
     };
     this.modal = function(context) {};
     this.video = function(context) {};
@@ -63,9 +70,10 @@
           return callback && callback(data);
         }
         if (that.mode === 'gallery') {
-          data.data.forEach(function(e, i, a) {
+              data.data.forEach(function(e, i, a) {
             return $(that.element).append(that.html().thumb(e));
           });
+
           return callback && callback(data);
         }
       }), 'jsonp');
@@ -143,12 +151,15 @@
      */
     this.gallery.recent = function() {
       that.mode = 'gallery';
-      that.instgrm += 'self/media/recent?' + $.param({
-        count: that.options.count,
-        access_token: that.options.accessToken
-      });
-      return getMedia("" + that.instgrm, function(data) {
 
+      that.instgrm += 'self/media/recent?' + $.param({
+      MIN_ID:that.options.MIN_ID,
+              count:that.options.count,
+       access_token: that.options.accessToken
+      });
+      return getMedia("" + that.instgrm, function(data)
+      {
+          alert("Запрашиваемый url:"+that.instgrm );
       });
     };
     $(this.element).addClass("pongstgrm " + flexbox);
@@ -163,8 +174,13 @@
       return false;
     }
   };
+  //функция, что мы выхываем
   $.fn.pongstgrm = function(option) {
-    var i, opt;
+      pictures_id=[];
+      pictures_id.push('1611178646284834147_1476665546');
+
+      var i, opt;
+
     opt = $.extend({}, $.fn.pongstgrm["default"], option);
     i = 0;
     while (i < arguments.length) {
@@ -176,9 +192,11 @@
       }
       i++;
     }
+    //FIRST
     return this.each(function() {
       new Pongstgrm($(this)[0], opt);
     });
   };
   $.fn.pongstgrm.options = Pongstgrm.DEFAULT;
+
 })();
